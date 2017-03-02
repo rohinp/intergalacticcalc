@@ -1,0 +1,37 @@
+This assignment is a solution for intergalactic calc or merchant guide problem statement.
+
+To run and check if the solution works:
+1> please import the project and sbt supported IDE and scala project.
+2> Once project is open, go to test folder
+3> There is an integration test called "InterGalacticCalcIntegrationTest"
+    a> The test reads from an input file in test resource folder
+    b> parses the input and checks the output with the expected answers.
+
+Application insight explained as per packages in org.tw.intergalacticcalc
+ alienttokens:
+    This package contains following domain classes
+        Alien language tokens like Glob, Prok, etc.
+        Metals like Gold, Silver, etc.
+        Also it contains Symbol which is basically Roman Numbers
+            Symbol is a type and also contains some basic operations
+            Operations like +, -, <, etc.
+            Num and Order are type classes implemented by Symbol
+        AlienLang and Metal are basically Tokens for the parsing module
+ expression:
+    This package contains following business/domain
+        Expression is a representation of a list of roman numbers
+        ExpressionEvaluator as name says it evaluates a given roman expression
+            if a Metal present in expression MetalExtractor helps to calculate its cost
+            Metal cost once calculated can be used for the evaluation of the expressions
+ parser:
+    This package contains code to parse user input and apply the calculations
+        Parsers object contains all the parser combinators required to parse input
+        and extract information like AlienLangToken and Metal
+        Also it contains parsers to parse the user queries and give answers.
+        TokenRepo is the respository which maintains the mapping of
+            metals and their costs
+            alien tokens and their roman value
+
+ IntergalacticCalc is a class which acts as a facade, it takes input parses, processes and gives the desired output
+
+ Note: For detailed understanding of the project please refer the Tests.
